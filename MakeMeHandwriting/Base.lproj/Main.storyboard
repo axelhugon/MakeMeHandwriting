@@ -71,19 +71,34 @@
                                     <constraint firstAttribute="bottom" secondItem="bqg-ZA-f7h" secondAttribute="bottom" id="anW-KU-KEQ"/>
                                 </constraints>
                             </scrollView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYD-lA-WO7">
+                                <rect key="frame" x="0.0" y="-25" width="375" height="45"/>
+                                <color key="backgroundColor" red="1" green="0.018539993604963168" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="3aP-A4-1Hx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Zxe-2A-jDY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4tT-dz-Dod"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Zxe-2A-jDY" secondAttribute="bottom" id="YT3-xp-LI5"/>
+                            <constraint firstItem="TYD-lA-WO7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZwN-Jf-el4"/>
                             <constraint firstItem="Zxe-2A-jDY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aOn-8k-zeM"/>
                             <constraint firstAttribute="trailing" secondItem="Zxe-2A-jDY" secondAttribute="trailing" id="cyj-pn-5n6"/>
+                            <constraint firstAttribute="trailing" secondItem="TYD-lA-WO7" secondAttribute="trailing" id="fJF-zE-USc"/>
+                            <constraint firstItem="TYD-lA-WO7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-45" id="wIq-4S-lkq"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="alertTopConstraint" destination="wIq-4S-lkq" id="1IP-f7-rLs"/>
                         <outlet property="buttonBottomConstraint" destination="75x-eR-NRN" id="qVQ-n6-0XP"/>
                         <outlet property="containerScrollView" destination="Zxe-2A-jDY" id="5r3-Ob-fsa"/>
                         <outlet property="containerView" destination="bqg-ZA-f7h" id="Pkb-YF-jsB"/>
+                        <outlet property="errorLabel" destination="TYD-lA-WO7" id="qIG-F5-1CK"/>
                         <outlet property="generateButton" destination="asm-4B-JcV" id="8MH-Gv-yeo"/>
                         <outlet property="inputTextView" destination="TOF-Qz-UIt" id="vBD-pP-GeF"/>
                     </connections>
