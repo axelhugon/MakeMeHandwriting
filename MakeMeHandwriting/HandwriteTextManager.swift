@@ -24,10 +24,10 @@ enum HandwriteError : Error {
 typealias ServiceResponseRender = (Render?, HandwriteError?) -> Void
 
 /// A class handling the API calls to render a handwrited text
-class HandwriteTextAPIManager: NSObject {
+class HandwriteTextManager: NSObject {
     
     /// Singleton
-    static let sharedInstance = HandwriteTextAPIManager()
+    static let sharedInstance = HandwriteTextManager()
     
     
     /// Endpoint to render a handwrited text to a PNG image
@@ -78,7 +78,6 @@ class HandwriteTextAPIManager: NSObject {
                         default : onCompletion(nil, HandwriteError.genericError)
                         }
                     }
-                    onCompletion(nil, HandwriteError.genericError)
                 }
             }
     }
