@@ -27,6 +27,17 @@ class HandwritingResultViewController: UIViewController {
         super.didReceiveMemoryWarning()
         
     }
+
+    @IBAction func onDoItAgainButtonTouched(_ sender: UIButton) {
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewControllerId") as! ViewController
+        self.present(nextViewController, animated:true, completion:nil)
+        
+    }
+    
+    
     
 
     /*

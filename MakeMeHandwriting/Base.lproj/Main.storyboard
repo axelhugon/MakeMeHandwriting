@@ -14,7 +14,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MakeMeHandwriting" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewControllerId" id="BYZ-38-t0r" customClass="ViewController" customModule="MakeMeHandwriting" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -45,6 +45,9 @@
                                                     <constraint firstAttribute="height" constant="50" id="mfb-zr-MJD"/>
                                                 </constraints>
                                                 <state key="normal" title="GENERATE"/>
+                                                <connections>
+                                                    <action selector="onGenerateAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PlA-FT-Kje"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -92,7 +95,7 @@
         <!--Loading View Controller-->
         <scene sceneID="L6c-wt-Tli">
             <objects>
-                <viewController id="PVc-dm-Uru" customClass="LoadingViewController" customModule="MakeMeHandwriting" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoadingViewControllerId" id="PVc-dm-Uru" customClass="LoadingViewController" customModule="MakeMeHandwriting" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NUI-WY-1bL"/>
                         <viewControllerLayoutGuide type="bottom" id="nPI-73-sRL"/>
@@ -101,7 +104,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fPX-mZ-8H2">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fPX-mZ-8H2">
                                 <rect key="frame" x="177" y="323" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -122,7 +125,7 @@
         <!--Handwriting Result View Controller-->
         <scene sceneID="IU1-Nc-h8G">
             <objects>
-                <viewController id="NYj-mI-jkv" customClass="HandwritingResultViewController" customModule="MakeMeHandwriting" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HandwritingViewControllerId" id="NYj-mI-jkv" customClass="HandwritingResultViewController" customModule="MakeMeHandwriting" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uBO-fB-O0o"/>
                         <viewControllerLayoutGuide type="bottom" id="Fmm-dd-UbX"/>
@@ -167,6 +170,9 @@
                                                     <constraint firstAttribute="height" constant="50" id="94c-G1-1Jh"/>
                                                 </constraints>
                                                 <state key="normal" title="DO IT AGAIN"/>
+                                                <connections>
+                                                    <action selector="onDoItAgainButtonTouched:" destination="NYj-mI-jkv" eventType="touchUpInside" id="2TZ-o3-lz9"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -51,14 +51,14 @@ class ViewController: UIViewController {
     }
     
 
-    func keyboardWasShown(notification: NSNotification) {
-        let info = notification.userInfo!
-        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+    @IBAction func onGenerateAction(_ sender: Any) {
         
-        UIView.animate(withDuration: 0.1, animations: { () -> Void in
-            self.buttonBottomConstraint.constant = keyboardFrame.size.height + 20
-        })
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoadingViewControllerId") as! LoadingViewController
+        self.present(nextViewController, animated:true, completion:nil)
     }
+    
 
 }
 
