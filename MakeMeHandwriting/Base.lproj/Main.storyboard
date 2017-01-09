@@ -23,15 +23,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zxe-2A-jDY">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="Zxe-2A-jDY">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqg-ZA-f7h">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="667"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TOF-Qz-UIt">
-                                                <rect key="frame" x="16" y="100" width="342" height="417"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TOF-Qz-UIt">
+                                                <rect key="frame" x="16" y="40" width="342" height="557"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="dWm-vH-H8H"/>
+                                                </constraints>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
@@ -47,10 +50,10 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="asm-4B-JcV" secondAttribute="bottom" id="75x-eR-NRN"/>
-                                            <constraint firstItem="TOF-Qz-UIt" firstAttribute="top" secondItem="bqg-ZA-f7h" secondAttribute="top" constant="100" id="8yj-Cy-cxp"/>
+                                            <constraint firstItem="TOF-Qz-UIt" firstAttribute="top" secondItem="bqg-ZA-f7h" secondAttribute="top" constant="40" id="8yj-Cy-cxp"/>
                                             <constraint firstAttribute="height" constant="667" id="BmC-bu-DRV"/>
                                             <constraint firstAttribute="trailing" secondItem="asm-4B-JcV" secondAttribute="trailing" id="D2C-wS-iLb"/>
-                                            <constraint firstItem="asm-4B-JcV" firstAttribute="top" secondItem="TOF-Qz-UIt" secondAttribute="bottom" constant="100" id="KhR-F4-xdd"/>
+                                            <constraint firstItem="asm-4B-JcV" firstAttribute="top" secondItem="TOF-Qz-UIt" secondAttribute="bottom" constant="20" id="KhR-F4-xdd"/>
                                             <constraint firstItem="asm-4B-JcV" firstAttribute="leading" secondItem="bqg-ZA-f7h" secondAttribute="leading" id="bsb-XO-8BN"/>
                                             <constraint firstItem="TOF-Qz-UIt" firstAttribute="leading" secondItem="bqg-ZA-f7h" secondAttribute="leadingMargin" constant="8" id="fmt-xc-ZaH"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="TOF-Qz-UIt" secondAttribute="trailing" constant="8" id="xua-yq-Xk1"/>
@@ -75,6 +78,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonBottomConstraint" destination="75x-eR-NRN" id="qVQ-n6-0XP"/>
                         <outlet property="containerScrollView" destination="Zxe-2A-jDY" id="5r3-Ob-fsa"/>
                         <outlet property="containerView" destination="bqg-ZA-f7h" id="Pkb-YF-jsB"/>
                         <outlet property="generateButton" destination="asm-4B-JcV" id="8MH-Gv-yeo"/>
