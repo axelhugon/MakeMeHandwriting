@@ -55,10 +55,10 @@ class LoadingViewController: UIViewController {
                 
             }
             
-            // Display the generated result image in the next view
+            // Send the generated result image in the next view
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HandwritingViewControllerId") as! HandwritingResultViewController
-            nextViewController.hwPngImage = renderObject!.handwritedTextImage
+            nextViewController.handwritingPngImage = renderObject!.handwritedTextImage
             self.present(nextViewController, animated:true, completion:nil)
         }
     }

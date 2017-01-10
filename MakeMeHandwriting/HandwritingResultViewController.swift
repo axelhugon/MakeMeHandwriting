@@ -18,7 +18,7 @@ class HandwritingResultViewController: UIViewController {
     @IBOutlet var handwritingResultImage: UIImageView!
     
     // Variables
-    var hwPngImage = UIImage()
+    var handwritingPngImage = UIImage()
     
 
     override func viewDidLoad() {
