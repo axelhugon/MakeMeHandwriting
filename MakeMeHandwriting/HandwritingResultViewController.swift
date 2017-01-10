@@ -25,7 +25,7 @@ class HandwritingResultViewController: UIViewController {
         super.viewDidLoad()
         
         
-        self.handwritingResultImage.image = self.hwPngImage
+        self.handwritingResultImage.image = self.handwritingPngImage
 
     }
 

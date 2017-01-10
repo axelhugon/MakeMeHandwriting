@@ -105,13 +105,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fPX-mZ-8H2">
-                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <rect key="frame" x="168" y="314" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="YuX-ix-vj7"/>
+                                    <constraint firstAttribute="width" constant="40" id="qbg-bH-Zyn"/>
+                                </constraints>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxx-gH-1ab">
+                                <rect key="frame" x="16" y="293" width="343" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="fPX-mZ-8H2" firstAttribute="top" secondItem="pxx-gH-1ab" secondAttribute="bottom" constant="5" id="77C-7h-07E"/>
                             <constraint firstItem="fPX-mZ-8H2" firstAttribute="centerX" secondItem="P0n-h8-TQJ" secondAttribute="centerX" id="Br9-l2-nJw"/>
                             <constraint firstItem="fPX-mZ-8H2" firstAttribute="centerY" secondItem="P0n-h8-TQJ" secondAttribute="centerY" id="FaN-oq-ATn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pxx-gH-1ab" secondAttribute="trailing" id="QFr-k6-HYH"/>
+                            <constraint firstItem="pxx-gH-1ab" firstAttribute="leading" secondItem="P0n-h8-TQJ" secondAttribute="leadingMargin" id="hLq-le-rTH"/>
                         </constraints>
                     </view>
                     <connections>
