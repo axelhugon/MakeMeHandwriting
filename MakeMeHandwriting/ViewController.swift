@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftValidator // Validation System
+import Alamofire
 
 /// A ViewController responsible for handling the tranformation of an input text into a handwrited text
 class ViewController: UIViewController, ValidationDelegate {
@@ -15,6 +16,8 @@ class ViewController: UIViewController, ValidationDelegate {
     /// Validator to validate user inputs
     fileprivate let validator = Validator()
     fileprivate var fontImageDataSource = Array<UIImage>()
+    /// singleton : manager for reachability
+    let reachabilityManager = Alamofire.NetworkReachabilityManager(host: "www.google.com")
     
     
     // UI Objects
@@ -41,6 +44,9 @@ class ViewController: UIViewController, ValidationDelegate {
         
         //Init Keyboard Actions
         self.initKeyboard()
+        
+        //Init Reachability Listener
+        self.listenForReachability()
         
     }
 
@@ -108,8 +114,15 @@ class ViewController: UIViewController, ValidationDelegate {
     ///   - sender: the button that triggered the action.
     @IBAction func onGenerateAction(_ sender: Any) {
         
-        // Validate the field, if pass call API to transform text into handwrite text, otherwise, show an error message
-        validator.validate(self)
+        // Test Reachability
+        if (self.reachabilityManager?.isReachable)!{
+            // Connection OK
+            // Validate the field, if pass call API to transform text into handwrite text, otherwise, show an error message
+            self.validator.validate(self)
+        } else {
+            // Connection KO
+            self.showErrorAlert(errorMessage: "No internet connection. Please verify and try again.")
+        }
         
     }
     
@@ -144,6 +157,24 @@ class ViewController: UIViewController, ValidationDelegate {
         self.showErrorAlert(errorMessage: errorMessage)
     }
 
+    
+    //MARK : Connection
+    // Test Reachability Listener
+    func listenForReachability() {
+        self.reachabilityManager?.listener = { status in
+            switch status {
+            case .notReachable:
+                // Connection KO
+                self.showErrorAlert(errorMessage: "No internet connection. Please verify and try again.")
+                break
+            case .reachable(_), .unknown:
+                // Connection OK
+                break
+            }
+        }
+        
+        self.reachabilityManager?.startListening()
+    }
     
     //MARK : Errors
     
