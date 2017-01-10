@@ -159,6 +159,9 @@
                                                     <constraint firstAttribute="height" constant="50" id="Ieu-b4-l5Z"/>
                                                 </constraints>
                                                 <state key="normal" title="SHARE"/>
+                                                <connections>
+                                                    <action selector="onShareButtonTouchUpInside:" destination="NYj-mI-jkv" eventType="touchUpInside" id="5uw-a9-d4S"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6R-DI-ubc">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="609"/>
