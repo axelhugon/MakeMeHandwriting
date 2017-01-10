@@ -64,9 +64,9 @@ class LoadingViewController: UIViewController {
     }
 
     fileprivate func showStandardErrorAlertView(){
-        /// Create an alert
+        /// Create an alert with the error message
         let alert = UIAlertController(title: "Oups", message: "An error occured", preferredStyle: .alert)
-        /// Create an action
+        /// Create an action to get back Home
         let tryAgainAction = UIAlertAction(title: "Try again", style: .default) {
             UIAlertAction in
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)

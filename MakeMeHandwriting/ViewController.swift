@@ -147,7 +147,7 @@ class ViewController: UIViewController, ValidationDelegate {
     
     //MARK : Errors
     
-    /// Show an error alert
+    /// Show an alert with the error
     fileprivate func showErrorAlert( errorMessage : String ){
         
         /// Create an alert
