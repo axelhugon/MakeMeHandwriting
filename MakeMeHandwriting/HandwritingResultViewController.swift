@@ -17,9 +17,15 @@ class HandwritingResultViewController: UIViewController {
     @IBOutlet var shareButton: UIButton!
     @IBOutlet var handwritingResultImage: UIImageView!
     
+    // Variables
+    var hwPngImage = UIImage()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.handwritingResultImage.image = self.hwPngImage
 
     }
 

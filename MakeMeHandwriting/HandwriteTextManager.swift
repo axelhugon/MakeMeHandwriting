@@ -68,7 +68,8 @@ class HandwriteTextManager: NSObject {
                     } else {
                         onCompletion(nil, HandwriteError.genericError)
                     }
-                case .failure:
+                case .failure(let error):
+                    print("Request failed with error: \(error)")
                     if let httpStatusCode = response.response?.statusCode {
                         switch(httpStatusCode) {
                         case 400:

@@ -15,7 +15,7 @@ class LoadingViewController: UIViewController {
     
     //Variables
     ///Text typed from Home
-    private let typedText: String = ""
+    private var typedText: String = ""
     
 
     override func viewDidLoad() {
@@ -30,11 +30,16 @@ class LoadingViewController: UIViewController {
         
     }
     
+    // Setter typedText
+    func setTypedText(typedText : NSString!){
+        self.typedText = typedText as String
+    }
+    
 
     // MARK: - API
     fileprivate func callHWApi(){
         // All fields are validated, call the API to transform the user's input text into a handwrited text
-        HandwriteTextManager.sharedInstance.getRenderText(self.typedText, fontId: "2D5S18M00002", color: "#FFFFFF", fontSize: "24px", height: "500px") { (renderObject: Render?, error: HandwriteError?) in
+        HandwriteTextManager.sharedInstance.getRenderText(self.typedText, fontId: "8P00D7DR003X", color: "#AEEE00", fontSize: "30px", height: "390px") { (renderObject: Render?, error: HandwriteError?) in
             
             guard error == nil else {
                 // An error occured display an error message in an alert view
@@ -53,7 +58,7 @@ class LoadingViewController: UIViewController {
             // Display the generated result image in the next view
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HandwritingViewControllerId") as! HandwritingResultViewController
-            nextViewController.handwritingResultImage.image = renderObject!.handwritedTextImage
+            nextViewController.hwPngImage = renderObject!.handwritedTextImage
             self.present(nextViewController, animated:true, completion:nil)
         }
     }

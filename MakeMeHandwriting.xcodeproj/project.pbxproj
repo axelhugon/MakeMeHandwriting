@@ -157,6 +157,7 @@
 				TargetAttributes = {
 					79ADF2761E237EC300394E82 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = TLSFQ3ZJF4;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -374,6 +375,7 @@
 			baseConfigurationReference = D4BEE5FEDE8BAA7F0A306C23 /* Pods-MakeMeHandwriting.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = TLSFQ3ZJF4;
 				INFOPLIST_FILE = MakeMeHandwriting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ahugon.MakeMeHandwriting;
@@ -387,6 +389,7 @@
 			baseConfigurationReference = DCB14DA929705B88B91C3977 /* Pods-MakeMeHandwriting.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = TLSFQ3ZJF4;
 				INFOPLIST_FILE = MakeMeHandwriting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ahugon.MakeMeHandwriting;

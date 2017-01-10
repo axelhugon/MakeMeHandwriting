@@ -150,7 +150,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6R-DI-ubc">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="609"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cwY-uC-2d1">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cwY-uC-2d1">
                                                         <rect key="frame" x="8" y="154" width="359" height="300"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="300" id="doh-Bk-ibQ"/>

@@ -122,6 +122,7 @@ class ViewController: UIViewController, ValidationDelegate {
         // Redirect to the next view
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoadingViewControllerId") as! LoadingViewController
+        nextViewController.setTypedText(typedText: inputTextView.text as NSString!)
         self.present(nextViewController, animated:true, completion:nil)
 
     }
@@ -156,8 +157,6 @@ class ViewController: UIViewController, ValidationDelegate {
         
         alert.addAction(defaultAction)
         self.present(alert, animated: true, completion:nil)
-
-
         
     }
     
