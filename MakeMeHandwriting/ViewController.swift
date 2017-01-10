@@ -22,8 +22,6 @@ class ViewController: UIViewController, ValidationDelegate {
     @IBOutlet var inputTextView: UITextView!
     /// The button to process the transformation
     @IBOutlet var generateButton: UIButton!
-    /// The label to display the error
-    @IBOutlet var errorLabel: UILabel!
     /// The view containing all ui objects
     @IBOutlet var containerView: UIView!
     /// The scroll view containing all views and ui objects
@@ -32,8 +30,6 @@ class ViewController: UIViewController, ValidationDelegate {
     // Constraints
     /// bottom generate button constraint
     @IBOutlet var buttonBottomConstraint: NSLayoutConstraint!
-    ///Error Alert Top Constraint
-    @IBOutlet var alertTopConstraint: NSLayoutConstraint!
     
     
 
@@ -150,30 +146,21 @@ class ViewController: UIViewController, ValidationDelegate {
     
     //MARK : Errors
     
-    /// Show error alert during 2 sec then, hide it.
+    /// Show an error alert
     fileprivate func showErrorAlert( errorMessage : String ){
         
-        self.errorLabel.text = errorMessage
-        self.displayErrorAlert()
+        /// Create an alert
+        let alert = UIAlertController(title: "Oups", message: errorMessage, preferredStyle: .alert)
+        /// Create an action
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(defaultAction)
+        self.present(alert, animated: true, completion:nil)
+
+
         
     }
     
-    func displayErrorAlert() {
-        self.errorLabel.isHidden = false
-        UIView.animate(withDuration: 2.0,
-                                   delay: 0.0,
-                                   options: .curveEaseInOut,
-                                   animations: {self.alertTopConstraint.constant += self.errorLabel.frame.height},
-                                   completion: nil)
-    }
-    
-    func hideErrorAlert() {
-        UIView.animate(withDuration: 2.0,
-                                   delay: 3.0,
-                                   options: .curveEaseInOut,
-                                   animations: {self.alertTopConstraint.constant -= self.errorLabel.frame.height},
-                                   completion: {finished in self.errorLabel.isHidden = true})
-    }
     
     /// Display an error message according to its type
     /// - parameters:
