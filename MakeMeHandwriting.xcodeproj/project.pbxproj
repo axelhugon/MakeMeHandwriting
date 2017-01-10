@@ -19,6 +19,7 @@
 		79ADF2961E23F71500394E82 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ADF2951E23F71500394E82 /* Constants.swift */; };
 		79ADF2981E23F81600394E82 /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ADF2971E23F81600394E82 /* Render.swift */; };
 		79ADF29A1E23F88800394E82 /* HandwriteTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ADF2991E23F88800394E82 /* HandwriteTextManager.swift */; };
+		79ADF29E1E25A0D500394E82 /* MMH-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 79ADF29D1E25A0D500394E82 /* MMH-logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		79ADF2951E23F71500394E82 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		79ADF2971E23F81600394E82 /* Render.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Render.swift; sourceTree = "<group>"; };
 		79ADF2991E23F88800394E82 /* HandwriteTextManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandwriteTextManager.swift; sourceTree = "<group>"; };
+		79ADF29D1E25A0D500394E82 /* MMH-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MMH-logo.png"; sourceTree = "<group>"; };
 		D4BEE5FEDE8BAA7F0A306C23 /* Pods-MakeMeHandwriting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeMeHandwriting.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MakeMeHandwriting/Pods-MakeMeHandwriting.debug.xcconfig"; sourceTree = "<group>"; };
 		DCB14DA929705B88B91C3977 /* Pods-MakeMeHandwriting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeMeHandwriting.release.xcconfig"; path = "Pods/Target Support Files/Pods-MakeMeHandwriting/Pods-MakeMeHandwriting.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +92,7 @@
 		79ADF2791E237EC300394E82 /* MakeMeHandwriting */ = {
 			isa = PBXGroup;
 			children = (
+				79ADF29C1E25A0D500394E82 /* images */,
 				79ADF27A1E237EC300394E82 /* AppDelegate.swift */,
 				79ADF2941E23F70600394E82 /* Handwriting API */,
 				79ADF2931E23DC7600394E82 /* Views */,
@@ -120,6 +123,14 @@
 				79ADF2991E23F88800394E82 /* HandwriteTextManager.swift */,
 			);
 			name = "Handwriting API";
+			sourceTree = "<group>";
+		};
+		79ADF29C1E25A0D500394E82 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				79ADF29D1E25A0D500394E82 /* MMH-logo.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +199,7 @@
 				79ADF2881E237EC300394E82 /* LaunchScreen.storyboard in Resources */,
 				79ADF2851E237EC300394E82 /* Assets.xcassets in Resources */,
 				79ADF2801E237EC300394E82 /* Main.storyboard in Resources */,
+				79ADF29E1E25A0D500394E82 /* MMH-logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
