@@ -11,7 +11,7 @@ import SwiftValidator // Validation System
 import Alamofire
 
 /// A ViewController responsible for handling the tranformation of an input text into a handwrited text
-class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSource, UIPickerViewDelegate{
+class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate{
     
     /// Validator to validate user inputs
     private let validator = Validator()
@@ -61,13 +61,17 @@ class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSour
         //Init Reachability Listener
         self.listenForReachability()
         
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
     }
+
     
+    
+    /// When keyboard will open
     func keyboardWillShow(notification: NSNotification) {
         
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
@@ -78,6 +82,7 @@ class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSour
         
     }
     
+    //When the keyboard will close
     func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.buttonBottomConstraint.constant != 0{
@@ -85,6 +90,23 @@ class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSour
             }
         }
     }
+    
+    /// Init Gesture to close the heyboard
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(self.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    /// Close the Keyboard
+    func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
+
     
     
     // MARK: UIPickerViewDataSource & UIPickerViewDelegate
@@ -241,6 +263,8 @@ class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSour
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         // on keyboard hide
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        // to hide Keyboard in touching anywhere
+        self.hideKeyboard()
     }
 
     
