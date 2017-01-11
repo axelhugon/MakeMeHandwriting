@@ -86,7 +86,7 @@ class ViewController: UIViewController, ValidationDelegate {
         
         
         // Register the text to transform field for its validation
-        validator.registerField(inputTextView as! ValidatableField, rules: [
+        validator.registerField(inputTextView as ValidatableField, rules: [
             RequiredRule(message: "Please type a text to transform"),
             CharacterSetRule(characterSet: charset as CharacterSet, message: "Please type only alphanumeric characters"),
             MaxLengthRule(length: 9000, message: "The text must be at most 9000 characters long"),
