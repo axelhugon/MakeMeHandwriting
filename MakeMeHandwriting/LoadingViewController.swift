@@ -17,6 +17,7 @@ class LoadingViewController: UIViewController {
     ///Text typed from Home
     private var typedText: String = ""
     private var selectedFontId: String = ""
+    private var selectedColor: String = ""
 
     
     override func viewDidLoad() {
@@ -40,11 +41,15 @@ class LoadingViewController: UIViewController {
         self.selectedFontId = fontId as String
     }
     
+    func setColor(color: NSString!){
+        self.selectedColor = color as String
+    }
+    
 
     // MARK: - API
     fileprivate func callHWApi(){
         // All fields are validated, call the API to transform the user's input text into a handwrited text
-        HandwriteTextManager.sharedInstance.getRenderText(self.typedText, fontId: self.selectedFontId , color: "#AEEE00", fontSize: "30px", height: "390px") { (renderObject: Render?, error: HandwriteError?) in
+        HandwriteTextManager.sharedInstance.getRenderText(self.typedText, fontId: self.selectedFontId , color: self.selectedColor, fontSize: "30px", height: "390px") { (renderObject: Render?, error: HandwriteError?) in
             
             guard error == nil else {
                 // An error occured display an error message in an alert view

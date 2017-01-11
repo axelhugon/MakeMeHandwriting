@@ -18,6 +18,7 @@ class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSour
     private var fontDataSource = Array<Font>()
     private var fontImageDataSource = Array<UIImage>()
     private var selectedFontId: String = ""
+    private var selectedColor: String = "#000000"
     /// singleton : manager for reachability
     let reachabilityManager = Alamofire.NetworkReachabilityManager(host: "www.google.com")
     
@@ -33,6 +34,11 @@ class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSour
     @IBOutlet var containerScrollView: UIScrollView!
     /// Picker View to chose the font
     @IBOutlet var fontPickerView: UIPickerView!
+    /// Color Buttons
+    @IBOutlet var blackButton: UIButton!
+    @IBOutlet var blueButton: UIButton!
+    @IBOutlet var redButton: UIButton!
+    @IBOutlet var greenButton: UIButton!
     
     // Constraints
     /// bottom generate button constraint
@@ -113,6 +119,38 @@ class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSour
     }
     
     
+    // MARK : Color
+    
+    @IBAction func userChooseBlack(_ sender: UIButton) {
+        colorSelected(sender, "#000000")
+    }
+    
+    @IBAction func userChooseBlue(_ sender: UIButton) {
+        colorSelected(sender, "#1E7FCB")
+    }
+    
+    @IBAction func userChooseRed(_ sender: UIButton) {
+        colorSelected(sender, "#FF0000")
+    }
+    
+    @IBAction func userChooseGreen(_ sender: UIButton) {
+        colorSelected(sender, "#60B732")
+    }
+    
+    
+    /// highlight the button selected and save the code color
+    private func colorSelected(_ buttonTouched : UIButton, _ colorCode : NSString){
+        
+        blackButton.alpha = 0.5
+        blueButton.alpha = 0.5
+        redButton.alpha = 0.5
+        greenButton.alpha = 0.5
+        
+        buttonTouched.alpha = 1.0
+        
+        self.selectedColor = colorCode as String
+        
+    }
 
     
     
@@ -240,6 +278,7 @@ class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSour
         // and pass parameters
         nextViewController.setTypedText(typedText: inputTextView.text as NSString!)
         nextViewController.setFontId(fontId: self.selectedFontId as NSString!)
+        nextViewController.setColor(color: self.selectedColor as NSString!)
         self.present(nextViewController, animated:true, completion:nil)
 
     }
