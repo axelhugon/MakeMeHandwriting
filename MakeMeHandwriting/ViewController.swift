@@ -11,11 +11,13 @@ import SwiftValidator // Validation System
 import Alamofire
 
 /// A ViewController responsible for handling the tranformation of an input text into a handwrited text
-class ViewController: UIViewController, ValidationDelegate {
+class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSource, UIPickerViewDelegate{
     
     /// Validator to validate user inputs
-    fileprivate let validator = Validator()
-    fileprivate var fontImageDataSource = Array<UIImage>()
+    private let validator = Validator()
+    private var fontDataSource = Array<Font>()
+    private var fontImageDataSource = Array<UIImage>()
+    private var selectedFontId: String = ""
     /// singleton : manager for reachability
     let reachabilityManager = Alamofire.NetworkReachabilityManager(host: "www.google.com")
     
@@ -29,6 +31,8 @@ class ViewController: UIViewController, ValidationDelegate {
     @IBOutlet var containerView: UIView!
     /// The scroll view containing all views and ui objects
     @IBOutlet var containerScrollView: UIScrollView!
+    /// Picker View to chose the font
+    @IBOutlet var fontPickerView: UIPickerView!
     
     // Constraints
     /// bottom generate button constraint
@@ -38,6 +42,9 @@ class ViewController: UIViewController, ValidationDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Fetch the most rated font (simulated, take the first 20)
+        self.initPickerFont()
         
         // Init Validation
         self.initValidator()
@@ -73,7 +80,102 @@ class ViewController: UIViewController, ValidationDelegate {
         }
     }
     
+    
+    // MARK: UIPickerViewDataSource & UIPickerViewDelegate
+    
+    // Used to display the font name style with its own font
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        // get the
+        let _fontImage = self.fontImageDataSource[row]
+        
+        let fontImageView = UIImageView(image: _fontImage)
+        
+        return fontImageView
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.fontImageDataSource.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let _font = self.fontDataSource[row]
+        
+        // When a font is selected, keep its id as selected
+        self.selectedFontId = _font.id
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 30.0
+    }
+    
+    
+
+    
+    
     // MARK: Init
+    
+    private func initPickerFont() {
+        self.fontPickerView.delegate = self
+        self.fontPickerView.dataSource = self
+        
+        // All fields are validated, call the API to transform the user's input text into a handwrited text
+        FontManager.sharedInstance.getHandwritings(20, offset: 0) { (fontList: Array<Font>?, error: FontError?) in
+            guard error == nil else {
+                // An error occured display an error message
+                self.handleErrorFont(error: error!)
+                return
+            }
+            
+            guard fontList != nil else {
+                // If the render object is nil, An error occured display an error message
+                self.showErrorAlert(errorMessage: "An error occured")
+                return
+            }
+            
+            // Set the Data source
+            self.fontDataSource = fontList!
+            
+            // Set the selected font as the first one
+            if let firstFont = fontList?.first {
+                self.selectedFontId = firstFont.id
+            }
+            
+            for _font in fontList! {
+                self.getFontNameStyleByItsOwnFont(font: _font)
+            }
+        }
+        
+    }
+    
+    
+    private func getFontNameStyleByItsOwnFont(font: Font) {
+        // All fields are validated, call the API to transform the user's input text into a handwrited text
+        HandwriteTextManager.sharedInstance.getRenderText(font.title, fontId: font.id, color: "#000000", fontSize: "20px", height: "30px", width: "\(self.fontPickerView.frame.width)px") { (renderObject: Render?, error: HandwriteError?) in
+            guard error == nil else {
+                // An error occured display an error message
+                self.handleError(error!)
+                return
+            }
+            
+            guard renderObject != nil else {
+                // If the render object is nil, An error occured display an error message
+                self.showErrorAlert(errorMessage: "An error occured")
+                
+                return
+            }
+            
+            // Display the generated result image
+            self.fontImageDataSource.append(renderObject!.handwritedTextImage)
+            
+            // Refresh the font picker
+            self.fontPickerView.reloadAllComponents()
+        }
+        
+    }
     
     
     /// Initialize a validator to validate user's input
@@ -135,7 +237,9 @@ class ViewController: UIViewController, ValidationDelegate {
         // Redirect to the next view
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoadingViewControllerId") as! LoadingViewController
+        // and pass parameters
         nextViewController.setTypedText(typedText: inputTextView.text as NSString!)
+        nextViewController.setFontId(fontId: self.selectedFontId as NSString!)
         self.present(nextViewController, animated:true, completion:nil)
 
     }
@@ -202,6 +306,24 @@ class ViewController: UIViewController, ValidationDelegate {
         case .hwUnsupportedCharacterError:
             errorMessage = "You entered an unsupported character, please try again"
             break
+        case .rateLimitExceededError:
+            errorMessage = "Rate Limit Exceeded"
+            break
+        default:
+            errorMessage = "An error occured"
+        }
+        
+        self.showErrorAlert(errorMessage: errorMessage)
+    }
+    
+    
+    /// Display an error message according to its type
+    /// - parameters:
+    ///   - error: The error to handle
+    private func handleErrorFont(error: FontError) {
+        var errorMessage = "An error occured"
+        
+        switch error {
         case .rateLimitExceededError:
             errorMessage = "Rate Limit Exceeded"
             break
