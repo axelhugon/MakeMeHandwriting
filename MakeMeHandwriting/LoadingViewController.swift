@@ -13,9 +13,15 @@ class LoadingViewController: UIViewController {
     //Objects from the Storyboard
     @IBOutlet var loadingActivityIndicator: UIActivityIndicatorView!
     
+    //Variables
+    ///Text typed from Home
+    private var typedText: String = ""
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.callHWApi()
 
     }
 
@@ -24,15 +30,55 @@ class LoadingViewController: UIViewController {
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Setter typedText
+    func setTypedText(typedText : NSString!){
+        self.typedText = typedText as String
     }
-    */
+    
 
+    // MARK: - API
+    fileprivate func callHWApi(){
+        // All fields are validated, call the API to transform the user's input text into a handwrited text
+        HandwriteTextManager.sharedInstance.getRenderText(self.typedText, fontId: "8P00D7DR003X", color: "#AEEE00", fontSize: "30px", height: "390px") { (renderObject: Render?, error: HandwriteError?) in
+            
+            guard error == nil else {
+                // An error occured display an error message in an alert view
+                self.showStandardErrorAlertView()
+                return
+            }
+            
+            guard renderObject != nil else {
+                // If the render object is nil, An error occured display an error message in an alert view
+                self.showStandardErrorAlertView()
+                return
+                
+                
+            }
+            
+            // Send the generated result image in the next view
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HandwritingViewControllerId") as! HandwritingResultViewController
+            nextViewController.handwritingPngImage = renderObject!.handwritedTextImage
+            self.present(nextViewController, animated:true, completion:nil)
+        }
+    }
+
+    fileprivate func showStandardErrorAlertView(){
+        /// Create an alert with the error message
+        let alert = UIAlertController(title: "Oups", message: "An error occured", preferredStyle: .alert)
+        /// Create an action to get back Home
+        let tryAgainAction = UIAlertAction(title: "Try again", style: .default) {
+            UIAlertAction in
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewControllerId") as! ViewController
+            self.present(nextViewController, animated:true, completion:nil)
+        }
+        
+        alert.addAction(tryAgainAction)
+        self.present(alert, animated: true, completion: {
+        })
+        
+    }
+    
 }
+

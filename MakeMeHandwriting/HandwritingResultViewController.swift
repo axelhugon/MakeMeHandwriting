@@ -17,9 +17,15 @@ class HandwritingResultViewController: UIViewController {
     @IBOutlet var shareButton: UIButton!
     @IBOutlet var handwritingResultImage: UIImageView!
     
+    // Variables
+    var handwritingPngImage = UIImage()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.handwritingResultImage.image = self.handwritingPngImage
 
     }
 
@@ -37,6 +43,22 @@ class HandwritingResultViewController: UIViewController {
         
     }
     
+    @IBAction func onShareButtonTouchUpInside(_ sender: Any) {
+        
+        // image to share
+        let image = handwritingPngImage
+        
+        // set up activity view controller
+        let imageToShare = [ image ]
+        let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        
+        // exclude some activity types from the list (optional)
+        //activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
+        
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
+    }
     
     
 
