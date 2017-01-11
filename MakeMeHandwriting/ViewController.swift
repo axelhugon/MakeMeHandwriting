@@ -111,9 +111,9 @@ class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSour
     
     // MARK: UIPickerViewDataSource & UIPickerViewDelegate
     
-    // Used to display the font name style with its own font
+    /// Used to display the font name style with its own font
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        // get the
+        
         let _fontImage = self.fontImageDataSource[row]
         
         let fontImageView = UIImageView(image: _fontImage)
