@@ -22,8 +22,3 @@ Dependencies are managed by CocoaPods. This project uses the following:
 
 ## Documentation
 See documentation in the [wiki](https://github.com/axelhugon/MakeMeHandwriting/wiki).
-
-## History
-on Monday Jan 9 : beginning of the project.
-on Tueday Jan 10 : end of the basic version.
-on Wednesday Jan 11 : add of some features.
