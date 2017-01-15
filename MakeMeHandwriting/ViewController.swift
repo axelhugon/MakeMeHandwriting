@@ -19,6 +19,7 @@ class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSour
     private var fontImageDataSource = Array<UIImage>()
     private var selectedFontId: String = ""
     private var selectedColor: String = "#000000"
+    private var textSize : String = ""
     /// singleton : manager for reachability
     let reachabilityManager = Alamofire.NetworkReachabilityManager(host: "www.google.com")
     
@@ -39,6 +40,11 @@ class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSour
     @IBOutlet var blueButton: UIButton!
     @IBOutlet var redButton: UIButton!
     @IBOutlet var greenButton: UIButton!
+    /// Text size button
+    @IBOutlet var hwSizeTextField: UITextField!
+    @IBOutlet var hwSizeStepper: UIStepper!
+    
+    
     
     // Constraints
     /// bottom generate button constraint
@@ -51,6 +57,9 @@ class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSour
         
         // Fetch the most rated font (simulated, take the first 20)
         self.initPickerFont()
+        
+        // Init Stepper
+        self.initTextSize()
         
         // Init Validation
         self.initValidator()
@@ -211,6 +220,24 @@ class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSour
         
     }
     
+    func initTextSize(){
+        
+        // get the current text size
+        let size = Int((self.inputTextView.font?.pointSize)!)
+        self.textSize = "\(size)"
+        
+        // set text size in textfield
+        self.hwSizeTextField.text = textSize
+        
+        // init of stepper
+        self.hwSizeStepper.value = Double(size)
+        self.hwSizeStepper.minimumValue = 1
+        
+
+        
+        
+    }
+    
     
     private func getFontNameStyleByItsOwnFont(font: Font) {
         // All fields are validated, call the API to transform the user's input text into a handwrited text
@@ -304,6 +331,7 @@ class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSour
         nextViewController.setTypedText(typedText: inputTextView.text.folding(options: .diacriticInsensitive, locale: .current) as NSString!)
         nextViewController.setFontId(fontId: self.selectedFontId as NSString!)
         nextViewController.setColor(color: self.selectedColor as NSString!)
+        nextViewController.setFontSize(size: self.textSize as NSString!)
         self.present(nextViewController, animated:true, completion:nil)
 
     }
@@ -324,6 +352,22 @@ class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSour
         // And display this consolidated error message
         self.showErrorAlert(errorMessage: errorMessage)
     }
+    
+    
+    @IBAction func onStepperValueChange(_ sender: UIStepper) {
+        
+        // Set new value of font size in textfield
+        self.hwSizeTextField.text = Int(sender.value).description
+        
+        // get the current text size
+        let size = Int(self.hwSizeTextField.text!)
+        self.textSize = "\(size!)"
+        
+        // change size text of the input textview
+        let sizeText = CGFloat(NumberFormatter().number(from: self.textSize)!)
+        self.inputTextView.font = UIFont(name: self.inputTextView.font!.fontName, size:sizeText)
+    }
+    
 
     
     //MARK : Connection
