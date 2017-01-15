@@ -313,7 +313,7 @@ class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSour
     ///   - errors: An array of all errors got by the `validate` step.
     func validationFailed(_ errors: [(Validatable, ValidationError)]) {
         // Default error message
-        var errorMessage: String = "An error occured. Please fixed:"
+        var errorMessage: String = "An error occured."
         
         // Consolidate all errors found into 1 message
         for (_, error) in validator.errors {
