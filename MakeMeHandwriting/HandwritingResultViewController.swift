@@ -16,6 +16,8 @@ class HandwritingResultViewController: UIViewController {
     @IBOutlet var doItAgainButton: UIButton!
     @IBOutlet var shareButton: UIButton!
     @IBOutlet var handwritingResultImage: UIImageView!
+    @IBOutlet var viewHeightContraint: NSLayoutConstraint!
+    
     
     // Variables
     var handwritingPngImage = UIImage()
