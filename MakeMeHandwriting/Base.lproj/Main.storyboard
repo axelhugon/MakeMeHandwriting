@@ -248,46 +248,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVk-HI-2yZ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MMH-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZVA-Sk-xWK">
+                                <rect key="frame" x="15" y="36" width="345" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="OwN-n3-DlE"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZB-FM-eBf">
+                                <rect key="frame" x="0.0" y="617" width="187.5" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="94c-G1-1Jh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="18"/>
+                                <color key="tintColor" red="0.43832102420000002" green="0.75135666130000001" blue="0.25473049279999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="DO IT AGAIN">
+                                    <color key="titleColor" red="0.43832102420000002" green="0.75135666130000001" blue="0.25473049279999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onDoItAgainButtonTouched:" destination="NYj-mI-jkv" eventType="touchUpInside" id="2TZ-o3-lz9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3R-ZS-f8N">
+                                <rect key="frame" x="187.5" y="617" width="187" height="50"/>
+                                <color key="backgroundColor" red="0.43832102420000002" green="0.75135666130000001" blue="0.25473049279999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ieu-b4-l5Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="SHARE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onShareButtonTouchUpInside:" destination="NYj-mI-jkv" eventType="touchUpInside" id="5uw-a9-d4S"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eVk-HI-2yZ">
+                                <rect key="frame" x="0.0" y="124" width="375" height="485"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="meg-me-FI0">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="meg-me-FI0">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZB-FM-eBf">
-                                                <rect key="frame" x="0.0" y="617" width="187.5" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="94c-G1-1Jh"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="18"/>
-                                                <color key="tintColor" red="0.43832102420000002" green="0.75135666130000001" blue="0.25473049279999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="DO IT AGAIN">
-                                                    <color key="titleColor" red="0.43832102420000002" green="0.75135666130000001" blue="0.25473049279999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="onDoItAgainButtonTouched:" destination="NYj-mI-jkv" eventType="touchUpInside" id="2TZ-o3-lz9"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3R-ZS-f8N">
-                                                <rect key="frame" x="187.5" y="617" width="187.5" height="50"/>
-                                                <color key="backgroundColor" red="0.43832102420000002" green="0.75135666130000001" blue="0.25473049279999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="Ieu-b4-l5Z"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="18"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title="SHARE">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="onShareButtonTouchUpInside:" destination="NYj-mI-jkv" eventType="touchUpInside" id="5uw-a9-d4S"/>
-                                                </connections>
-                                            </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6R-DI-ubc">
-                                                <rect key="frame" x="0.0" y="108" width="375" height="501"/>
+                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6R-DI-ubc">
+                                                <rect key="frame" x="0.0" y="8" width="375" height="651"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cwY-uC-2d1">
-                                                        <rect key="frame" x="8" y="40" width="359" height="421"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cwY-uC-2d1">
+                                                        <rect key="frame" x="8" y="40" width="359" height="571"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -298,29 +304,13 @@
                                                     <constraint firstItem="cwY-uC-2d1" firstAttribute="leading" secondItem="j6R-DI-ubc" secondAttribute="leading" constant="8" id="pYa-sx-Ydq"/>
                                                 </constraints>
                                             </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MMH-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZVA-Sk-xWK">
-                                                <rect key="frame" x="15" y="20" width="345" height="80"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="80" id="OwN-n3-DlE"/>
-                                                </constraints>
-                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="MZB-FM-eBf" firstAttribute="trailing" secondItem="meg-me-FI0" secondAttribute="centerX" id="2El-ry-2x8"/>
-                                            <constraint firstItem="j6R-DI-ubc" firstAttribute="top" secondItem="ZVA-Sk-xWK" secondAttribute="bottom" constant="8" id="703-as-DbT"/>
-                                            <constraint firstAttribute="bottom" secondItem="MZB-FM-eBf" secondAttribute="bottom" id="EfR-dA-vsu"/>
-                                            <constraint firstItem="v3R-ZS-f8N" firstAttribute="leading" secondItem="meg-me-FI0" secondAttribute="centerX" id="HeZ-sM-a3I"/>
-                                            <constraint firstItem="ZVA-Sk-xWK" firstAttribute="leading" secondItem="meg-me-FI0" secondAttribute="leading" constant="15" id="KtP-uT-kUH"/>
-                                            <constraint firstAttribute="trailing" secondItem="v3R-ZS-f8N" secondAttribute="trailing" id="OL7-39-eRh"/>
-                                            <constraint firstAttribute="height" constant="667" id="TXj-jf-5F0"/>
+                                            <constraint firstAttribute="bottom" secondItem="j6R-DI-ubc" secondAttribute="bottom" constant="8" id="9po-Te-sgZ"/>
                                             <constraint firstAttribute="trailing" secondItem="j6R-DI-ubc" secondAttribute="trailing" id="VD3-ck-Srs"/>
                                             <constraint firstItem="j6R-DI-ubc" firstAttribute="leading" secondItem="meg-me-FI0" secondAttribute="leading" id="iNY-jI-j2D"/>
-                                            <constraint firstItem="MZB-FM-eBf" firstAttribute="leading" secondItem="meg-me-FI0" secondAttribute="leading" id="m5d-St-LyS"/>
-                                            <constraint firstAttribute="bottom" secondItem="v3R-ZS-f8N" secondAttribute="bottom" id="sJf-YW-kGC"/>
-                                            <constraint firstItem="ZVA-Sk-xWK" firstAttribute="top" secondItem="meg-me-FI0" secondAttribute="top" constant="20" id="tIX-9F-BbK"/>
-                                            <constraint firstItem="v3R-ZS-f8N" firstAttribute="top" secondItem="j6R-DI-ubc" secondAttribute="bottom" constant="8" id="uU3-Kn-Llp"/>
-                                            <constraint firstAttribute="trailing" secondItem="ZVA-Sk-xWK" secondAttribute="trailing" constant="15" id="vvP-70-BW3"/>
+                                            <constraint firstItem="j6R-DI-ubc" firstAttribute="top" secondItem="meg-me-FI0" secondAttribute="top" constant="8" id="lGu-Lr-SA9"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -335,10 +325,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="eVk-HI-2yZ" firstAttribute="top" secondItem="ZVA-Sk-xWK" secondAttribute="bottom" constant="8" id="2UD-eG-VxW"/>
+                            <constraint firstAttribute="trailing" secondItem="ZVA-Sk-xWK" secondAttribute="trailing" constant="15" id="5aL-d4-FdL"/>
                             <constraint firstItem="eVk-HI-2yZ" firstAttribute="leading" secondItem="sZX-pR-f29" secondAttribute="leading" id="GU4-vv-NIK"/>
-                            <constraint firstItem="eVk-HI-2yZ" firstAttribute="top" secondItem="sZX-pR-f29" secondAttribute="top" id="Iyg-mb-eIo"/>
-                            <constraint firstItem="Fmm-dd-UbX" firstAttribute="top" secondItem="eVk-HI-2yZ" secondAttribute="bottom" id="rt3-Ng-oqI"/>
+                            <constraint firstItem="v3R-ZS-f8N" firstAttribute="leading" secondItem="sZX-pR-f29" secondAttribute="centerX" id="Qv1-tJ-1C6"/>
+                            <constraint firstAttribute="trailing" secondItem="v3R-ZS-f8N" secondAttribute="trailing" id="WHr-HD-y47"/>
+                            <constraint firstItem="Fmm-dd-UbX" firstAttribute="top" secondItem="MZB-FM-eBf" secondAttribute="bottom" id="eJK-eh-Vre"/>
+                            <constraint firstItem="ZVA-Sk-xWK" firstAttribute="top" secondItem="uBO-fB-O0o" secondAttribute="bottom" constant="16" id="iyr-0w-ON9"/>
+                            <constraint firstItem="Fmm-dd-UbX" firstAttribute="top" secondItem="v3R-ZS-f8N" secondAttribute="bottom" id="jdo-52-OnF"/>
+                            <constraint firstItem="v3R-ZS-f8N" firstAttribute="top" secondItem="eVk-HI-2yZ" secondAttribute="bottom" constant="8" id="jrP-0Q-Mo6"/>
+                            <constraint firstItem="MZB-FM-eBf" firstAttribute="trailing" secondItem="sZX-pR-f29" secondAttribute="centerX" id="lLo-2a-xHt"/>
                             <constraint firstAttribute="trailing" secondItem="eVk-HI-2yZ" secondAttribute="trailing" id="w4O-pk-KZ6"/>
+                            <constraint firstItem="MZB-FM-eBf" firstAttribute="leading" secondItem="sZX-pR-f29" secondAttribute="leading" id="zF9-jr-l91"/>
+                            <constraint firstItem="ZVA-Sk-xWK" firstAttribute="leading" secondItem="sZX-pR-f29" secondAttribute="leading" constant="15" id="zdR-Xa-SCs"/>
                         </constraints>
                     </view>
                     <connections>
@@ -347,7 +346,6 @@
                         <outlet property="doItAgainButton" destination="MZB-FM-eBf" id="PEl-sa-Hgq"/>
                         <outlet property="handwritingResultImage" destination="cwY-uC-2d1" id="fxv-TS-0T7"/>
                         <outlet property="shareButton" destination="v3R-ZS-f8N" id="Wwq-u8-8vo"/>
-                        <outlet property="viewHeightContraint" destination="TXj-jf-5F0" id="546-AD-rSB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="84d-Z0-Gv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
