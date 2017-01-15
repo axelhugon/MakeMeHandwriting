@@ -20,13 +20,13 @@ public protocol Validatable {
 extension UITextField: Validatable {
     
     public var validationText: String {
-        return text ?? ""
+        return text!.folding(options: .diacriticInsensitive, locale: .current) ?? ""
     }
 }
 
 extension UITextView: Validatable {
     
     public var validationText: String {
-        return text ?? ""
+        return text.folding(options: .diacriticInsensitive, locale: .current) ?? ""
     }
 }

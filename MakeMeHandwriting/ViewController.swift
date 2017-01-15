@@ -300,7 +300,8 @@ class ViewController: UIViewController, ValidationDelegate, UIPickerViewDataSour
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoadingViewControllerId") as! LoadingViewController
         // and pass parameters
-        nextViewController.setTypedText(typedText: inputTextView.text as NSString!)
+        /// Send text without accent
+        nextViewController.setTypedText(typedText: inputTextView.text.folding(options: .diacriticInsensitive, locale: .current) as NSString!)
         nextViewController.setFontId(fontId: self.selectedFontId as NSString!)
         nextViewController.setColor(color: self.selectedColor as NSString!)
         self.present(nextViewController, animated:true, completion:nil)
